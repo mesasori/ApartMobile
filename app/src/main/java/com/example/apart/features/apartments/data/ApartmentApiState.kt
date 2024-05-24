@@ -16,6 +16,7 @@ data class ApartmentApiState(val status: Status, val data: List<ApartmentModelBa
     }
 }
 
+
 enum class Status {
     SUCCESS,
     ERROR,

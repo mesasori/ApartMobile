@@ -44,26 +44,14 @@ class ApartmentsFragment : Fragment() {
         createAdapter()
         setUpAdapter()
 
-        startListening()
-    }
-
-    private fun startListening() {
-        lifecycleScope.launch {
-            viewModel.list.collect {
-                when (it.status) {
-                    Status.LOADING ->  binding.progressCircular.visibility = View.VISIBLE
-                    Status.ERROR -> {
-                        Toast.makeText(requireContext(), it.error.toString(), Toast.LENGTH_SHORT)
-                            .show()
-                        binding.progressCircular.visibility = View.GONE
-                    }
-                    Status.SUCCESS -> {
-                        binding.progressCircular.visibility = View.GONE
-                        apartmentAdapter.items = it.data.map { it.toHolderItem() }
-                    }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect {
+                    setUpViews(it)
                 }
             }
         }
+
     }
 
     private fun createAdapter() {

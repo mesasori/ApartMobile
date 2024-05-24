@@ -1,7 +1,6 @@
 package com.example.apart.features.apartments.repository
 
 import android.util.Log
-import com.example.apart.features.apartments.data.ApartmentApiState
 import com.example.apart.features.apartments.data.ApartmentModelBackend
 import com.example.apart.features.apartments.network.ApartApiService
 import kotlinx.coroutines.Dispatchers
@@ -12,17 +11,19 @@ import kotlinx.coroutines.flow.flowOn
 
 class ApartmentRepository(
     private val apartApi: ApartApiService
-){
-    suspend fun getApartments(): Flow<ApartmentApiState> = flow {
+) {
+    fun getApartments(): Flow<List<ApartmentModelBackend>> = flow {
         try {
-            Log.d("Repository", "Before loaded list")
             val loadedList = apartApi.fetchApartments()
-            Log.d("Repository", loadedList.joinToString())
-            emit(ApartmentApiState.success(loadedList))
-        } catch (e: Exception) {
-            throw e
+            emit(loadedList)
+        } catch (e: Error) {
+            Log.e("APARTMENT REPOSITORY", e.message.toString())
         }
-
     }.flowOn(Dispatchers.IO)
+}
 
+sealed interface NetworkRequestState {
+    data class Error(val error: kotlin.Error): NetworkRequestState
+
+    data class Success(val data: List<ApartmentModelBackend>): NetworkRequestState
 }
