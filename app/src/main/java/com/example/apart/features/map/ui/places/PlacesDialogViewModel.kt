@@ -3,8 +3,8 @@ package com.example.apart.features.map.ui.places
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.apart.App
-import com.example.apart.features.map.data.Result
-import com.example.apart.features.map.data.asResult
+import com.example.apart.utils.Result
+import com.example.apart.utils.asResult
 import com.example.apart.features.map.data.repository.PlaceRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted

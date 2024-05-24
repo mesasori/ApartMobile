@@ -2,7 +2,7 @@ package com.example.apart.features.map.ui.map
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.apart.features.map.data.toBoundingBox
+import com.example.apart.utils.toBoundingBox
 import com.yandex.mapkit.geometry.BoundingBox
 import com.yandex.mapkit.geometry.Geometry
 import com.yandex.mapkit.geometry.Point

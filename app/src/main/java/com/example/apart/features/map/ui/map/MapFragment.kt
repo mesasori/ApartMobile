@@ -18,7 +18,7 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.example.apart.R
 import com.example.apart.databinding.FragmentMapBinding
-import com.example.apart.features.map.data.GeoObjectHolder
+import com.example.apart.utils.GeoObjectHolder
 import com.example.apart.features.map.ui.details.GeoDetailsDialogFragment
 import com.example.apart.features.map.ui.places.PlacesDialogFragment
 import com.yandex.mapkit.Animation

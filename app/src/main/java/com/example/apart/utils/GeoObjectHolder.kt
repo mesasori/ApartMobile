@@ -1,4 +1,4 @@
-package com.example.apart.features.map.data
+package com.example.apart.utils
 
 import com.yandex.mapkit.GeoObject
 

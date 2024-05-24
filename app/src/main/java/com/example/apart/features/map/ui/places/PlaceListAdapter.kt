@@ -2,13 +2,12 @@ package com.example.apart.features.map.ui.places
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apart.databinding.ItemPlaceBinding
-import com.example.apart.features.map.data.room.PlaceEntity
+import com.example.apart.utils.room.PlaceEntity
 import com.yandex.mapkit.geometry.Point
 
-class PlaceListAdapter(val ownItemListener: OwnItemClickListener) :
+class PlaceListAdapter(val ownItemListener: PlaceItemClickListener) :
     RecyclerView.Adapter<PlaceListAdapter.PlaceHolder>() {
     var items: List<PlaceHolderItem> = emptyList()
         set(value) {
@@ -54,7 +53,7 @@ data class PlaceHolderItem(
     )
 }
 
-interface OwnItemClickListener {
+interface PlaceItemClickListener {
     fun onPlusClick(place: PlaceHolderItem)
 
     fun onMinusClick(place: PlaceHolderItem)

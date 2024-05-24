@@ -1,25 +1,50 @@
 package com.example.apart.features.apartments.ui
 
+import android.net.Uri
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.apart.R
+import com.example.apart.databinding.ItemApartmentBinding
 import com.example.apart.features.apartments.data.ApartmentHolderItem
+import com.example.apart.features.map.ui.places.PlaceItemClickListener
 
-class ApartmentListAdapter: RecyclerView.Adapter<ApartmentListAdapter.ApartmentHolder>() {
+class ApartmentListAdapter(
+    val ownItemListener: ApartmentItemClickListener
+): RecyclerView.Adapter<ApartmentListAdapter.ApartmentHolder>() {
+
+    var items: List<ApartmentHolderItem> = emptyList()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApartmentHolder {
-        TODO("Not yet implemented")
+        return ApartmentHolder(
+            ItemApartmentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
-    override fun onBindViewHolder(holder: ApartmentHolder, position: Int) {
-        TODO("Not yet implemented")
-    }
+    override fun onBindViewHolder(holder: ApartmentHolder, position: Int) = holder.bind(items[position])
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = items.size
 
     inner class ApartmentHolder(
         private val binding: ItemApartmentBinding
     ): RecyclerView.ViewHolder(binding.root) {
-
+        fun bind(item: ApartmentHolderItem) = with(binding) {
+            textAddress.text = item.address
+            textPrice.text = item.price
+            Glide.with(image.context)
+                .load(Uri.parse(item.image))
+                .centerCrop()
+                .into(image)
+            textInformation.text = item.information
+            textUnderground.text = item.undergroundStation
+        }
     }
+}
+
+interface ApartmentItemClickListener {
+    fun onItemClick(apartment: ApartmentHolderItem)
 }

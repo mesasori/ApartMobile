@@ -1,6 +1,6 @@
 package com.example.apart.features.map.data.repository
 
-import com.example.apart.features.map.data.room.PlaceDatabase
+import com.example.apart.utils.room.PlaceDatabase
 import com.example.apart.features.map.ui.places.PlaceHolderItem
 
 class PlaceRepository(db: PlaceDatabase) {

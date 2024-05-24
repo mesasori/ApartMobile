@@ -1,4 +1,4 @@
-package com.example.apart.features.map.data.room
+package com.example.apart.utils.room
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -14,7 +14,7 @@ interface PlaceDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(placeEntity: PlaceEntity)
 
-    @Query("SELECT * FROM places")
+    @Query("SELECT * FROM places ORDER BY importance DESC")
     fun getAll(): Flow<List<PlaceEntity>>
 
     @Delete

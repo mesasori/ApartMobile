@@ -1,9 +1,7 @@
-package com.example.apart.features.map.data
+package com.example.apart.utils
 
-import android.content.res.Resources
 import android.text.Spannable
 import android.text.style.ForegroundColorSpan
-import android.util.TypedValue
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.core.view.isVisible
@@ -17,7 +15,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.retryWhen
 import java.io.IOException
-import kotlin.math.roundToInt
 
 fun VisibleRegion.toBoundingBox() = BoundingBox(bottomLeft, topRight)
 

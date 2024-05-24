@@ -5,15 +5,13 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.apart.App
-import com.example.apart.features.map.data.GeoObjectHolder
+import com.example.apart.utils.GeoObjectHolder
 import com.example.apart.features.map.data.repository.PlaceRepository
-import com.example.apart.features.map.data.room.PlaceDatabase
-import com.example.apart.features.map.data.takeIfNotEmpty
+import com.example.apart.utils.takeIfNotEmpty
 import com.example.apart.features.map.ui.places.PlaceHolderItem
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.search.BusinessObjectMetadata
 import com.yandex.mapkit.search.ToponymObjectMetadata
-import com.yandex.mapkit.uri.Uri
 import com.yandex.mapkit.uri.UriObjectMetadata
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

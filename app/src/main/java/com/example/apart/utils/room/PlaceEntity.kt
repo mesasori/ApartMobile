@@ -1,4 +1,4 @@
-package com.example.apart.features.map.data.room
+package com.example.apart.utils.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

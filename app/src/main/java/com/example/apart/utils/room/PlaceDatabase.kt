@@ -1,4 +1,4 @@
-package com.example.apart.features.map.data.room
+package com.example.apart.utils.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

@@ -5,15 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
 import com.example.apart.databinding.FragmentGeoDetailsDialogBinding
-import com.example.apart.features.map.data.GeoObjectHolder
-import com.example.apart.features.map.data.goneOrRun
-import com.example.apart.features.map.data.repository.PlaceRepository
-import com.example.apart.features.map.data.room.PlaceDatabase
+import com.example.apart.utils.GeoObjectHolder
+import com.example.apart.utils.goneOrRun
 import com.example.apart.features.map.ui.places.PlaceHolderItem
 import com.example.apart.features.map.ui.places.PlacesDialogFragment
-import com.example.apart.features.map.ui.places.PlacesDialogViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class GeoDetailsDialogFragment : BottomSheetDialogFragment() {

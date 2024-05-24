@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apart.R
 import com.example.apart.databinding.ItemSuggestBinding
-import com.example.apart.features.map.data.toSpannable
+import com.example.apart.utils.toSpannable
 import com.yandex.mapkit.SpannableString
 
 class SuggestsListAdapter : RecyclerView.Adapter<SuggestHolder>() {

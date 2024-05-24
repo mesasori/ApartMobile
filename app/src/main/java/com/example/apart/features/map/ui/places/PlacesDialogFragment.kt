@@ -49,6 +49,10 @@ class PlacesDialogFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        createAdapter()
+        setUpAdapter()
+        setUpHelper()
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect {
@@ -56,10 +60,6 @@ class PlacesDialogFragment : BottomSheetDialogFragment() {
                 }
             }
         }
-
-        createAdapter()
-        setUpAdapter()
-        setUpHelper()
     }
 
     private fun setUpAdapter() {
@@ -82,7 +82,7 @@ class PlacesDialogFragment : BottomSheetDialogFragment() {
     }
 
     private fun createAdapter() {
-        placeAdapter = PlaceListAdapter(object : OwnItemClickListener {
+        placeAdapter = PlaceListAdapter(object : PlaceItemClickListener {
             override fun onPlusClick(place: PlaceHolderItem) {
                 if (place.importance < 10) place.importance += 1
                 else Toast.makeText(requireContext(), "Can't be more than 10", Toast.LENGTH_SHORT)

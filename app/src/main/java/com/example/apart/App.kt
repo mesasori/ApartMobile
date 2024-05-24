@@ -2,7 +2,7 @@ package com.example.apart
 
 import android.app.Application
 import androidx.room.Room
-import com.example.apart.features.map.data.room.PlaceDatabase
+import com.example.apart.utils.room.PlaceDatabase
 import com.yandex.mapkit.MapKitFactory
 
 class App : Application() {
@@ -14,6 +14,7 @@ class App : Application() {
             PlaceDatabase::class.java,
             "places_database"
         ).build()
+
     }
 
     companion object {
