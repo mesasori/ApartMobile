@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Apart</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="map">Map</string>
+    <string name="apartments">Apartments</string>
+    <string name="go">Go</string>
+</resources>
