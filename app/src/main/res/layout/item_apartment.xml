@@ -29,7 +29,7 @@
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"
         android:orientation="vertical"
-        android:weightSum="4"
+        android:weightSum="5"
         android:gravity="top"
 
         app:layout_constraintStart_toEndOf="@+id/cardView"
@@ -50,7 +50,7 @@
             style="@style/TextAppearance.AppCompat.Body2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="3dp"
             android:layout_weight="1"
             android:textStyle="bold"
             tools:text="Price: 31 500 ₽" />
@@ -60,7 +60,7 @@
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="3dp"
             android:layout_weight="1"
             android:textColor="@color/gray"
             android:textSize="10sp"
@@ -75,6 +75,17 @@
             android:textColor="@color/gray"
             android:textSize="10sp"
             tools:text="Метро: Izmaylovskay" />
+
+        <TextView
+            android:id="@+id/text_link"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:textSize="10sp"
+            android:layout_marginTop="3dp"
+            tools:text="https://wikipedia.com"
+            />
 
     </LinearLayout>
 

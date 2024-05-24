@@ -41,6 +41,7 @@ class ApartmentListAdapter(
                 .into(image)
             textInformation.text = item.information
             textUnderground.text = item.undergroundStation
+            textLink.text = item.link
         }
     }
 }

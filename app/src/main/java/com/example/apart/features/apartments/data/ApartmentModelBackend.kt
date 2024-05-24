@@ -22,7 +22,7 @@ data class ApartmentModelBackend(
         val price = "$rent $currency"
         val information = "Площадь: ${area}m², Этаж: ${additional.floor}/${additional.floorsCount}"
         val undergroundStation = location.undergroundStation
-        return ApartmentHolderItem(address, price, information, undergroundStation, coverImage)
+        return ApartmentHolderItem(address, price, information, undergroundStation, coverImage, url)
     }
 }
 

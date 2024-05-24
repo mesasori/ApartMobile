@@ -1,5 +1,6 @@
 package com.example.apart.features
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
@@ -19,5 +20,7 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         navView.setupWithNavController(navController)
+
+        window.statusBarColor = Color.TRANSPARENT
     }
 }

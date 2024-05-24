@@ -5,5 +5,6 @@ data class ApartmentHolderItem(
     val price: String,
     val information: String,
     val undergroundStation: String,
-    val image: String
+    val image: String,
+    val link: String
 )
