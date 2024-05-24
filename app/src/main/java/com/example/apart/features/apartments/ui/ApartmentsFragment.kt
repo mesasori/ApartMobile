@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apart.R
 import com.example.apart.databinding.FragmentApartmentsBinding
 import com.example.apart.features.apartments.data.ApartmentHolderItem
-import com.example.apart.features.apartments.data.Status
 import com.example.apart.features.map.ui.places.PlaceItemDecoration
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -93,7 +92,7 @@ class ApartmentsFragment : Fragment() {
             }
 
             is ApartmentsUiState.Success -> {
-                apartmentAdapter.items = uiState.data
+                apartmentAdapter.items = uiState.data.shuffled()
                 binding.progressCircular.visibility = View.GONE
             }
         }
