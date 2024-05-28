@@ -4,7 +4,6 @@
         <!-- Customize your light theme here. -->
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-
     </style>
 
     <style name="Theme.Apart" parent="Base.Theme.Apart" />

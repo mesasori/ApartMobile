@@ -7,6 +7,8 @@ class PlaceRepository(db: PlaceDatabase) {
     private val dao = db.placeDao()
     fun getAll() = dao.getAll()
 
+    suspend fun getAllForPost() = dao.getAllForPost()
+
     suspend fun insert(place: PlaceHolderItem) = dao.insert(place.toEntity())
 
     suspend fun update(place: PlaceHolderItem) = dao.update(place.toEntity())

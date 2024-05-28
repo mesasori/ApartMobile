@@ -1,37 +1,48 @@
 package com.example.apart.features.apartments.data
 
 import com.google.gson.annotations.SerializedName
-import java.net.URL
+import com.yandex.mapkit.geometry.Point
 
 data class ApartmentModelBackend(
-    val rent: String,
-    val currency: String,
-    val location: Location,
-    val area: Int,
+    val rent: String?,
+    val currency: String?,
+    val address: String?,
+    @SerializedName("metro_station")
+    val undergroundStation: String?,
+    val location: Location?,
+    val area: Int?,
     @SerializedName("cover_image")
-    val coverImage: String,
+    val coverImage: String?,
     val images: List<String>?,
-    val provider: String,
-    val url: String,
-    val additional: Additional,
+    val provider: String?,
+    val url: String?,
+    val additional: Additional?,
     @SerializedName("_id")
-    val id: String
+    val id: String?,
+    @SerializedName("created_at")
+    val createdAt: String?
 ) {
     fun toHolderItem(): ApartmentHolderItem {
-        val address = location.address
-        val price = "$rent $currency"
-        val information = "Площадь: ${area}m², Этаж: ${additional.floor}/${additional.floorsCount}"
-        val undergroundStation = location.undergroundStation
-        return ApartmentHolderItem(address, price, information, undergroundStation, coverImage, url)
+        val address = address ?: "Null address"
+        val price = rent.toString() + currency.toString()
+        val information =
+            "Площадь: ${area.toString()}m², Этаж: ${additional?.floor ?: "0"}/${additional?.floorsCount ?: "0"}"
+        val undergroundStation = undergroundStation ?: "Random station"
+        return ApartmentHolderItem(
+            address,
+            price,
+            information,
+            undergroundStation,
+            coverImage ?: "https://example.com/",
+            url ?: "https://www.cian.ru/rent/flat/300935887/",
+            Point(location?.coordinates?.get(0) ?: 55.7670476, location?.coordinates?.get(1) ?: 37.5939051)
+        )
     }
 }
 
 data class Location(
-    val address: String,
-    val longitude: Double,
-    val latitude: Double,
-    @SerializedName("metro_station")
-    val undergroundStation: String
+    val type: String?,
+    val coordinates: List<Double>
 )
 
 data class Additional(

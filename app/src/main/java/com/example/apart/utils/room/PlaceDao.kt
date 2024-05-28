@@ -17,6 +17,9 @@ interface PlaceDao {
     @Query("SELECT * FROM places ORDER BY importance DESC")
     fun getAll(): Flow<List<PlaceEntity>>
 
+    @Query("SELECT * FROM places ORDER BY importance DESC")
+    suspend fun getAllForPost(): List<PlaceEntity>
+
     @Delete
     suspend fun delete(placeEntity: PlaceEntity)
 

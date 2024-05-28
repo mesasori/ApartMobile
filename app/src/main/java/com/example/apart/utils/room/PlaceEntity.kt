@@ -2,6 +2,8 @@ package com.example.apart.utils.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.apart.features.apartments.data.Place
+import com.example.apart.features.apartments.data.PostBodyModel
 import com.example.apart.features.map.ui.places.PlaceHolderItem
 import com.yandex.mapkit.geometry.Point
 
@@ -20,4 +22,7 @@ data class PlaceEntity(
         Point(latitude, longitude),
         importance
     )
+
+    fun fromEntityToPost(): Place = Place(title, longitude, latitude, importance)
+
 }

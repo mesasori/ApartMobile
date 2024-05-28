@@ -76,6 +76,7 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation("com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0")
 
     //json convertor factory
     implementation("com.squareup.retrofit2:converter-gson:2.1.0")
