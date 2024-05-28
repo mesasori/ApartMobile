@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apart.R
 import com.example.apart.databinding.FragmentPlacesDialogBinding
+import com.example.apart.utils.toPx
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.launch
 import kotlin.math.abs
@@ -200,13 +201,6 @@ class PlacesDialogFragment : BottomSheetDialogFragment() {
 
         swipeHelper.attachToRecyclerView(binding.listPlaces)
     }
-
-    private val Number.toPx
-        get() = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            this.toFloat(),
-            Resources.getSystem().displayMetrics
-        )
 
     private val Int.dp
         get() = TypedValue.applyDimension(

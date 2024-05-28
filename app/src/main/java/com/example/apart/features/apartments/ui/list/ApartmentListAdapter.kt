@@ -1,14 +1,12 @@
-package com.example.apart.features.apartments.ui
+package com.example.apart.features.apartments.ui.list
 
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.apart.R
 import com.example.apart.databinding.ItemApartmentBinding
 import com.example.apart.features.apartments.data.ApartmentHolderItem
-import com.example.apart.features.map.ui.places.PlaceItemClickListener
 
 class ApartmentListAdapter(
     val ownItemListener: ApartmentItemClickListener

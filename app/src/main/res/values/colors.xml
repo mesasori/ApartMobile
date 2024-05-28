@@ -21,4 +21,6 @@
     <color name="light_blue">#004DFF</color>
 
     <color name="support.separator">#33000000</color>
+    <color name="light_gray">#E0E0E0</color>
+
 </resources>

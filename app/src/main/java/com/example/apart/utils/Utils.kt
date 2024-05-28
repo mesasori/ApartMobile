@@ -1,7 +1,9 @@
 package com.example.apart.utils
 
+import android.content.res.Resources
 import android.text.Spannable
 import android.text.style.ForegroundColorSpan
+import android.util.TypedValue
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.core.view.isVisible
@@ -65,3 +67,11 @@ fun <T> Flow<T>.asResult(): Flow<Result<T>> {
         }
         .catch { emit(Result.Error(it)) }
 }
+
+val Number.toPx
+    get() = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this.toFloat(),
+        Resources.getSystem().displayMetrics
+    )
+

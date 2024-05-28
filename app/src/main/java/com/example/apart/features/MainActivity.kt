@@ -21,6 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
-        window.statusBarColor = Color.TRANSPARENT
+        window.statusBarColor = Color.WHITE
     }
 }

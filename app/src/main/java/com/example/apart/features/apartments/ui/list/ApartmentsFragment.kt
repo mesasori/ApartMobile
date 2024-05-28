@@ -1,25 +1,20 @@
-package com.example.apart.features.apartments.ui
+package com.example.apart.features.apartments.ui.list
 
-import android.content.res.Resources
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.LayoutInflater
-import android.view.OrientationEventListener
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apart.R
 import com.example.apart.databinding.FragmentApartmentsBinding
 import com.example.apart.features.apartments.data.ApartmentHolderItem
 import com.example.apart.features.map.ui.places.PlaceItemDecoration
-import kotlinx.coroutines.flow.collect
+import com.example.apart.utils.toPx
 import kotlinx.coroutines.launch
 
 class ApartmentsFragment : Fragment() {
@@ -43,14 +38,15 @@ class ApartmentsFragment : Fragment() {
         createAdapter()
         setUpAdapter()
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect {
-                    setUpViews(it)
-                }
-            }
+        lifecycleScope.launch {
+            viewModel.update()
         }
 
+        lifecycleScope.launch {
+            viewModel.uiState.collect {
+                setUpViews(it)
+            }
+        }
     }
 
     private fun createAdapter() {
@@ -64,7 +60,8 @@ class ApartmentsFragment : Fragment() {
     private fun setUpAdapter() {
         binding.apply {
             apartmentsList.adapter = apartmentAdapter
-            apartmentsList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            apartmentsList.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             apartmentsList.addItemDecoration(
                 PlaceItemDecoration(
                     ResourcesCompat.getDrawable(
@@ -97,12 +94,5 @@ class ApartmentsFragment : Fragment() {
             }
         }
     }
-
-    private val Number.toPx
-        get() = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            this.toFloat(),
-            Resources.getSystem().displayMetrics
-        )
 
 }

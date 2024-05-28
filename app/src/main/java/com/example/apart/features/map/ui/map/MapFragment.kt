@@ -3,6 +3,7 @@ package com.example.apart.features.map.ui.map
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.drawable.DrawableContainer.DrawableContainerState
 import android.os.Bundle
 import android.text.TextWatcher
 import android.util.Log
@@ -164,12 +165,31 @@ class MapFragment : Fragment() {
                             addTextChangedListener(editQueryTextWatcher)
                         }
                     }
-                    textSearchStatus.text =
-                        "Search: ${it.searchState.toTextStatus()}; Suggest: ${it.suggestState.toTextStatus()}"
                     buttonSearch.isEnabled =
                         it.query.isNotEmpty() && it.searchState == SearchState.Off
+                    if (buttonSearch.isEnabled) {
+                        buttonSearch.visibility = View.VISIBLE
+                        decorationView.visibility = View.VISIBLE
+                        val drawables = editQuery.compoundDrawables
+                        for (d in drawables) {
+                            if (d != null) {
+                                Log.d("MapFragment", d.alpha.toString())
+                                d.alpha = 0
+                            }
+                        }
+                    }
+                    else {
+                        buttonSearch.visibility = View.GONE
+                        decorationView.visibility = View.GONE
+                        val drawables = editQuery.compoundDrawables
+                        for (d in drawables) {
+                            if (d != null) d.alpha = 255
+                        }
+                    }
+
                     buttonReset.isEnabled =
                         it.query.isNotEmpty() || it.searchState !is SearchState.Off
+
                     editQuery.isEnabled = it.searchState is SearchState.Off
                 }
             }

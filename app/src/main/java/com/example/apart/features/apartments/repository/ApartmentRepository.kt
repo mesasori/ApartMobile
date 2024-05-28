@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.flowOn
 class ApartmentRepository(
     private val apartApi: ApartApiService
 ) {
-    fun getApartments(): Flow<List<ApartmentModelBackend>> = flow {
+    fun getApartmgients(): Flow<List<ApartmentModelBackend>> = flow {
         try {
             val loadedList = apartApi.fetchApartments()
             emit(loadedList)

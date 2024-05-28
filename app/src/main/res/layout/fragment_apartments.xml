@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.apartments.ui.ApartmentsFragment">
+    android:background="@color/white"
+    tools:context=".features.apartments.ui.list.ApartmentsFragment">
 
 
     <LinearLayout
@@ -15,34 +16,53 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/dialog_background"
         android:orientation="horizontal"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/edit_query"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Search"
-            android:inputType="text"
-            android:lines="1" />
 
         <ImageButton
             android:id="@+id/button_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/circle_button_gray"
             android:src="@drawable/round_close_24"
             android:text="reset" />
+
+        <EditText
+            android:id="@+id/edit_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/circle_button_gray"
+            android:drawableStart="@drawable/round_search_24"
+            android:hint="Search"
+            android:inputType="text"
+            android:lines="1"
+            android:paddingStart="10dp"
+            android:pointerIcon="text" />
 
         <ImageButton
             android:id="@+id/button_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/round_search_24"
-            android:text="search" />
+            android:background="@drawable/circle_button_gray"
+            android:src="@drawable/round_filter_alt_24"
+            android:text="search"
+            android:visibility="visible" />
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/decoration_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="2dp"
+        android:layout_marginTop="7dp"
+        android:background="@color/light_gray"
+        app:layout_constraintBottom_toTopOf="@+id/apartments_list"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/apartments_list"
